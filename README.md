@@ -4,6 +4,8 @@ This is a MariaDB schema for tests and examples.
 
 Have fun with it and please contribute.
 
+This schema has Super Cow Powers.
+
 
 ## Project Purpose and Guidelines
 

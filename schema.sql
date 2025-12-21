@@ -177,3 +177,27 @@ CREATE TABLE order_line (
     ENGINE InnoDB
     COMMENT 'An entry in an order: product + quantity'
 ;
+
+
+DELIMITER ||
+
+CREATE FUNCTION moo()
+    RETURNS TEXT
+    DETERMINISTIC
+    READS SQL DATA
+    COMMENT 'Implementation of apt-get''s Moo algorithm in pure SQL"'
+BEGIN
+    RETURN '
+                 (__)
+                 (oo)
+           /------\/
+          / |    ||
+         *  /\---/\
+            ~~   ~~
+..."Have you mooed today?"...
+';
+END;
+
+||
+DELIMITER ;
+
