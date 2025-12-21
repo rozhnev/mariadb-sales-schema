@@ -10,6 +10,11 @@
 --  Have fun with it and please contribute.
 
 
+SET sql_mode := CONCAT(@@session.sql_mode, ',NO_ZERO_DATE,NO_ZERO_IN_DATE');
+SET SESSION sql_mode := REPLACE(@@session.sql_mode, ',NO_ZERO_DATE', '');
+SET SESSION sql_mode := REPLACE(@@session.sql_mode, ',NO_ZERO_IN_DATE', '');
+
+
 DROP SCHEMA sales_xmp;
 CREATE SCHEMA sales_xmp
     DEFAULT CHARACTER SET = utf8mb4
@@ -37,7 +42,7 @@ CREATE TABLE person (
     customer_uuid UUID NOT NULL,
     first_name VARCHAR(100) NOT NULL,
     last_name VARCHAR(100) NOT NULL,
-    date_of_birth DATE,
+    date_of_birth DATE NOT NULL DEFAULT '0000-00-00',
     PRIMARY KEY (uuid),
     UNIQUE unq_customer_uuid (customer_uuid),
     FOREIGN KEY (customer_uuid) REFERENCES customer(uuid) ON DELETE CASCADE ON UPDATE RESTRICT
