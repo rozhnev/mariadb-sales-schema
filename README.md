@@ -74,7 +74,7 @@ Current maintainer: [Federico Razzoli](https://federicos-thoughts.com).
 Contributions are welcome.
 
 
-## Copyright and Lucense
+## Copyright and License
 
 License: GNU Affero GPL v3. See the `LICENSE` file.
 
