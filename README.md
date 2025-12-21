@@ -67,7 +67,7 @@ mycli [credentials] < schema.sql
 
 This schema was developed by [Vettabase](https://vettabase.com).
 
-Current maintainer: [Federico Razzoli](federico.razzoli@vettabase.com).
+Current maintainer: [Federico Razzoli](https://federicos-thoughts.com).
 
 Contributions are welcome.
 
