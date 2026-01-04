@@ -53,6 +53,14 @@ To pass the `schema.sql` file to mariadb, run:
 mariadb [credentials] < schema.sql
 ```
 
+Data are still work-in-progress. If you want to import data, you need to run
+the files with the `data.` prefix:
+
+```
+mariadb [credentials] < data.category.sql
+mariadb [credentials] < data.customer.sql
+```
+
 Some people are uncomfortable with mariadb's interface.
 
 Before switching to a GUI or a web UI, try [mycli](https://www.mycli.net/).
@@ -61,7 +69,7 @@ highlighting, and saved queries. The usage is very similar.
 To pass the `schema.sql` file to mariadb, run:
 
 ```
-mycli [credentials] < schema.sql
+mycli [credentials] < <file-name>
 ```
 
 
