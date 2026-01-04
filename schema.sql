@@ -50,7 +50,8 @@ INSERT INTO salutation (salutation) VALUES
 
 CREATE TABLE customer (
     uuid UUID DEFAULT UUID_v7(),
-    email VARCHAR(255) NOT NULL,
+    email VARCHAR(255) NOT NULL
+        CHECK (email LIKE '%_@%_.%__'),
     username VARCHAR(255) NOT NULL
         DEFAULT CONCAT('@', SUBSTRING_INDEX(email, '@', 1), '_', SUBSTRING_INDEX(email, '@', 2))
         COMMENT 'usernames must have only 1 @ as their first character',
