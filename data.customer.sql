@@ -1,3 +1,5 @@
+USE sales_xmp;
+
 INSERT INTO customer
     (uuid, email, created_at, password_hash)
     VALUES

@@ -4,6 +4,8 @@
 -- For categories with multiple parents, this is only true for the main parent.
 
 
+USE sales_xmp;
+
 INSERT INTO category (id, name) VALUES
       (2,    'Electronics')
 
