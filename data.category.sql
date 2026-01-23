@@ -100,6 +100,12 @@ INSERT INTO category_arc (to_category, from_category) VALUES
     - Prevents SKU collisions through distinct category patterns
 */
 
+INSERT INTO sku_format (category_id, category_code, format, `regexp`) VALUES
+      (211,  'LPT',  'LPT-[FORM]-[SIZE]-[SPEC]',     '^LPT-[A-Z]{2}-[0-9]{2}-[A-Z0-9]{2,3}$')
+    , (212,  'GMC',  'GMC-[TIER]-[GPU]-[CPU]',       '^GMC-[A-Z]{2}-[0-9]{4}-[A-Z0-9]{2,3}$')
+    , (213,  'PER',  'PER-[TYPE]-[FEATURE]-[TIER]',  '^PER-[A-Z]{2}-[A-Z0-9]{2,3}-[A-Z]{2}$')
+;
+
 INSERT INTO product (main_category_id, sku, name, description, price, stock_quantity) VALUES
     -- category: 211 - Laptops
       (211,  'LPT-UB-14-I5',    'UltraBook Pro 14"',         'Lightweight business laptop with 16GB RAM and 512GB SSD',

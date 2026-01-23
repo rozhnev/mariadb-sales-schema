@@ -193,6 +193,33 @@ CREATE TABLE category_arc (
     COMMENT 'An arc in the graph representing categories hierarchies'
 ;
 
+CREATE TABLE sku_format (
+    id INT UNSIGNED AUTO_INCREMENT,
+    category_id INT UNSIGNED NOT NULL,
+    category_code CHAR(3) NOT NULL
+        COLLATE ascii_bin
+        CHECK (category_code REGEXP '^[A-Z0-9]{3}$'),
+    format VARCHAR(100) NOT NULL
+        COLLATE ascii_bin
+        COMMENT 'Human-readable SKU pattern with placeholders in square brackets',
+    `regexp` VARCHAR(255) NOT NULL
+        COLLATE ascii_bin
+        COMMENT 'Regular expression to validate SKUs for this category',
+    PRIMARY KEY (id),
+    UNIQUE unq_category_id (category_id),
+    UNIQUE unq_category_code (category_code),
+    UNIQUE unq_format (format),
+    UNIQUE unq_regexp (`regexp`),
+    FOREIGN KEY (category_id)
+        REFERENCES category (id)
+        ON DELETE CASCADE
+        ON UPDATE RESTRICT
+)
+    WITH SYSTEM VERSIONING
+    ENGINE InnoDB
+    COMMENT 'SKU format rules for each product category'
+;
+
 CREATE TABLE product (
     uuid UUID DEFAULT UUID_v7(),
     main_category_id INT UNSIGNED NOT NULL
