@@ -26,7 +26,7 @@ INSERT INTO category (id, name) VALUES
     , (313,   'Security Cameras')
 
     , (32,    'Office Furniture')
-    , (321,   'Office Tables')
+    , (321,   'Office Desks')
     , (322,   'Office Chairs')
 ;
 
