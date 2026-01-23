@@ -150,5 +150,15 @@ INSERT INTO product (main_category_id, sku, name, description, price, stock_quan
       189.99,   95)
     , (213,  'PER-DK-USB-PR',   'USB Docking Station',       '11-port hub with dual 4K display support and 100W charging',
       49.99,   55)
+    -- category: 221 - TV
+    , (221,  'TVS-55-QL-4K',    'QLED 4K Smart TV 55"',      '55-inch QLED display with 4K resolution and smart features',
+      1499.99,   28)
+    , (221,  'TVS-65-OL-4K',    'OLED 4K Premium TV 65"',    '65-inch OLED panel with perfect blacks and HDR10+ support',
+      2799.99,   12)
+    -- category: 222 - Wi-Fi
+    , (222,  'WFI-RT-AX6-DL',   'WiFi 6 Router Dual-Band',   'AX6000 dual-band router with MU-MIMO and 8 antennas',
+      299.99,   42)
+    , (222,  'WFI-ME-AX11-TR',  'WiFi 6E Mesh System',       'AX11000 tri-band mesh system with 3-pack coverage',
+      799.99,   18)
 ;
 
