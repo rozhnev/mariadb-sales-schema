@@ -362,6 +362,23 @@ BEGIN
     RETURN ret;
 END;
 
+CREATE OR REPLACE PROCEDURE insert_secondary_product_category_rel(
+    IN i_category_id INT UNSIGNED,
+    IN i_product_sku VARCHAR(50)
+)
+    MODIFIES SQL DATA
+    COMMENT
+'Insert a secondary product category relationship.
+The product''s id is found based on i_product_sku.
+Example: CALL insert_secondary_product_category_rel(312, ''PRT-MF-CL-EN'');'
+BEGIN
+    -- Insert into product_category and return the inserted row
+    INSERT INTO product_category (category_id, product_uuid)
+        VALUES (i_category_id, get_product_uuid_by_sku(i_product_sku))
+        RETURNING category_id, product_uuid
+    ;
+END;
+
 CREATE OR REPLACE FUNCTION moo()
     RETURNS TEXT
     DETERMINISTIC
