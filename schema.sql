@@ -68,7 +68,7 @@ CREATE TABLE customer (
 
 CREATE TABLE person (
     uuid UUID DEFAULT UUID_v7(),
-    customer_uuid UUID NOT NULL,
+    customer_uuid UUID NULL,
     first_name VARCHAR(100) NOT NULL,
     last_name VARCHAR(100) NOT NULL,
     salutation_id SMALLINT UNSIGNED NULL,
@@ -82,7 +82,7 @@ CREATE TABLE person (
 )
     WITH SYSTEM VERSIONING
     ENGINE=InnoDB
-    COMMENT 'A person who is also a customer'
+    COMMENT 'Any person who is relevant to our business'
 ;
 
 CREATE TABLE company (
