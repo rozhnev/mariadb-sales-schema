@@ -336,6 +336,29 @@ BEGIN
     RETURN ret;
 END;
 
+CREATE OR REPLACE FUNCTION get_product_uuid_by_sku(i_sku VARCHAR(50))
+    RETURNS UUID
+    NOT DETERMINISTIC
+    READS SQL DATA
+    COMMENT
+'Returns UUID of the specified product by SKU.
+Example: SELECT get_product_uuid_by_sku(''ABC-123'');'
+BEGIN
+    DECLARE ret UUID DEFAULT NULL;
+    DECLARE error_message VARCHAR(100) DEFAULT NULL;
+    SET ret := (
+        SELECT uuid
+            FROM product
+            WHERE sku = i_sku
+    );
+    IF ret IS NULL THEN
+        SET error_message := CONCAT('Product not found: ', QUOTE(i_sku));
+        SIGNAL SQLSTATE '02000'
+            SET MESSAGE_TEXT = error_message;
+    END IF;
+    RETURN ret;
+END;
+
 CREATE OR REPLACE FUNCTION moo()
     RETURNS TEXT
     DETERMINISTIC
