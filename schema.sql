@@ -362,6 +362,26 @@ BEGIN
     RETURN ret;
 END;
 
+CREATE OR REPLACE PROCEDURE insert_secondary_product_category_rel(
+    IN product_id INT UNSIGNED,
+    IN product_sku VARCHAR(50)
+)
+    MODIFIES SQL DATA
+    COMMENT
+'Inserts a secondary product category relationship.
+Example: CALL insert_secondary_product_category_rel(312, ''PRT-MF-CL-EN'');'
+BEGIN
+    DECLARE product_uuid_val UUID;
+    
+    -- Get the product UUID using the provided SKU
+    SET product_uuid_val := get_product_uuid_by_sku(product_sku);
+    
+    -- Insert into product_category and return the inserted row
+    INSERT INTO product_category (category_id, product_uuid)
+        VALUES (product_id, product_uuid_val)
+        RETURNING *;
+END;
+
 CREATE OR REPLACE FUNCTION moo()
     RETURNS TEXT
     DETERMINISTIC
