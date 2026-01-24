@@ -369,6 +369,7 @@ CREATE OR REPLACE PROCEDURE insert_secondary_product_category_rel(
     MODIFIES SQL DATA
     COMMENT
 'Inserts a secondary product category relationship.
+Note: product_id parameter represents the category_id to associate with the product.
 Example: CALL insert_secondary_product_category_rel(312, ''PRT-MF-CL-EN'');'
 BEGIN
     DECLARE product_uuid_val UUID;
