@@ -342,7 +342,7 @@ CREATE OR REPLACE FUNCTION get_product_uuid_by_sku(i_sku VARCHAR(50))
     READS SQL DATA
     COMMENT
 'Returns UUID of the specified product by SKU.
-Example: SELECT get_product_uuid_by_sku(''ABC-123'');'
+Example: SELECT get_product_uuid_by_sku(''LPT-UB-14-I5'');'
 BEGIN
     DECLARE ret UUID DEFAULT NULL;
     DECLARE error_message VARCHAR(100) DEFAULT NULL;
