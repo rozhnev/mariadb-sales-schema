@@ -16,8 +16,8 @@ INSERT INTO company
 INSERT INTO company
     (customer_uuid, company_name, tax_id, registration_number)
     VALUES
-    ('62fdc824-e96c-11f0-a38a-560005d947e2', 'Société Parisienne de Technologie SARL', 'FR12345678901', '123 456 789 RCS Paris'),
-    ('62fdc82a-e96c-11f0-a38a-560005d947e2', 'Lyon Consulting SA', 'FR23456789012', '234 567 890 RCS Lyon')
+    ('62fdc824-e96c-11f0-a38a-560005d947e2', 'Société Parisienne de Technologie SARL', 'FR1234567890', '123 456 789 RCS Paris'),
+    ('62fdc82a-e96c-11f0-a38a-560005d947e2', 'Lyon Consulting SA', 'FR2345678901', '234 567 890 RCS Lyon')
 ;
 
 -- Companies from Germany
@@ -40,5 +40,5 @@ INSERT INTO company
 INSERT INTO company
     (customer_uuid, company_name, tax_id, registration_number)
     VALUES
-    ('62fdc84e-e96c-11f0-a38a-560005d947e2', 'Roma Innovazione SRL', 'IT12345678901', 'RM-123456')
+    ('62fdc84e-e96c-11f0-a38a-560005d947e2', 'Roma Innovazione SRL', 'IT1234567890', 'RM-123456')
 ;
