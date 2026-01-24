@@ -200,10 +200,5 @@ INSERT INTO product (main_category_id, sku, name, description, price, stock_quan
 ;
 
 -- Add secondary category relationships
-INSERT INTO product_category
-    (category_id, product_uuid)
-    VALUES
-    -- Enterprise Multifunction printer is also a scanner
-    (312, get_product_uuid_by_sku('PRT-MF-CL-EN'))
-;
+CALL insert_secondary_product_category_rel(312, 'PRT-MF-CL-EN');
 
