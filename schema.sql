@@ -114,9 +114,13 @@ CREATE TABLE contact_type (
 
 INSERT INTO contact_type (name) VALUES
     ('email'),
+    ('mobile'),
+    ('sms'),
     ('phone'),
     ('fax'),
-    ('linkedin')
+    ('linkedin'),
+    ('whatsapp'),
+    ('telepathy')
 ;
 
 CREATE TABLE contact (
