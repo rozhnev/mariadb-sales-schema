@@ -301,7 +301,7 @@ CREATE TABLE order_line (
     product_uuid UUID NOT NULL,
     quantity INT UNSIGNED NOT NULL,
     unit_price DECIMAL(10, 2) NOT NULL,
-    line_total DECIMAL(10, 2) NOT NULL,
+    line_total DECIMAL(10, 2) AS (quantity * unit_price) STORED,
     PRIMARY KEY (uuid),
     UNIQUE unq_order_uuid_product_uuid (order_uuid, product_uuid),
     FOREIGN KEY (order_uuid) REFERENCES sales_order (uuid) ON DELETE CASCADE ON UPDATE RESTRICT,
