@@ -230,6 +230,7 @@ CREATE TABLE product (
     main_category_id INT UNSIGNED NOT NULL
         COMMENT 'A product can belong to more categories, but must have one main category',
     sku VARCHAR(50) NOT NULL,
+    sku_category_code CHAR(3) COLLATE ascii_bin AS (SUBSTRING_INDEX(sku, '-', 1)) STORED,
     name VARCHAR(255) NOT NULL,
     description TEXT,
     price DECIMAL(10, 2) NOT NULL,
@@ -238,6 +239,7 @@ CREATE TABLE product (
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     PRIMARY KEY (uuid),
     UNIQUE unq_sku (sku),
+    INDEX idx_sku_category_code (sku_category_code),
     FOREIGN KEY (main_category_id)
         REFERENCES category (id)
         ON DELETE CASCADE
