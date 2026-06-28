@@ -52,6 +52,7 @@ CREATE TABLE customer (
     uuid UUID DEFAULT UUID_v7(),
     email VARCHAR(255) NOT NULL
         CHECK (email LIKE '%_@%_.%__'),
+    email_domain VARCHAR(255) AS (SUBSTRING_INDEX(email, '@', -1)) VIRTUAL,
     username VARCHAR(255) NOT NULL
         DEFAULT CONCAT('@', SUBSTRING_INDEX(email, '@', 1), '_', SUBSTRING_INDEX(email, '@', 2))
         COMMENT 'usernames must have only 1 @ as their first character',
@@ -59,7 +60,8 @@ CREATE TABLE customer (
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     PRIMARY KEY (uuid),
     UNIQUE unq_email_username (email, username)
-        COMMENT 'Multiple users from the same email are ok, but they must use different usernames. Usernames don''t need be unique.'
+        COMMENT 'Multiple users from the same email are ok, but they must use different usernames. Usernames don''t need be unique.',
+    INDEX idx_email_domain (email_domain)
 )
     WITH SYSTEM VERSIONING
     ENGINE InnoDB
