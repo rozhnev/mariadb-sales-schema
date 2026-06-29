@@ -128,8 +128,8 @@ CREATE TABLE contact (
     contact_type_id SMALLINT NOT NULL,
     contact_value VARCHAR(255) NOT NULL,
     PRIMARY KEY (uuid),
-    FOREIGN KEY (contact_type_uuid) REFERENCES contact_type(uuid) ON DELETE CASCADE ON UPDATE RESTRICT,
-    INDEX idx_contact_type_uuid (contact_type_uuid)
+    FOREIGN KEY (contact_type_id) REFERENCES contact_type(id) ON DELETE CASCADE ON UPDATE RESTRICT,
+    INDEX idx_contact_type_id (contact_type_id)
 )
     WITH SYSTEM VERSIONING
     ENGINE InnoDB
